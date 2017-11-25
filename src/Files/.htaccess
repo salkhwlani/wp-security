@@ -10,7 +10,7 @@
 </Files>
 
 # Protect wp-config.php and other files
-<FilesMatch "(.htaccess|.htpasswd|wp-config.php|liesmich.html|readme.html|(.*)\.ttf|(.*)\.bak|(.*)\.log)">
+<FilesMatch "(.htaccess|.htpasswd|wp-config.php|liesmich.html|readme.html|(.*)\.bak|(.*)\.log)">
 	Order deny,allow
 	Deny from all
 </FilesMatch>

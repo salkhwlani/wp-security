@@ -3,8 +3,8 @@
  * Plugin Name: WordPress Security
  * Plugin URI: https://github.com/yemenifree/wp-security
  * Description: Basic security helper for WordPress.
- * Version: 1.0.3
- * Author: Salah Alkhwlani <yemenifree@yandex.com>
+ * Version: 1.0.4
+ * Author: Salah Alkhwlani yemenifree@yandex.com>
  * Author URI: https://www.twitter.com/salahAlkhwlani
  * Requires at least: 4.7
  * Tested up to: 4.8.
