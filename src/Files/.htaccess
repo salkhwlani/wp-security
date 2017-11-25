@@ -28,14 +28,6 @@
 	RewriteRule ^wp-includes/theme-compat/ - [F,L]
 </IfModule>
 
-# Set some security related headers
-# See: http://de.slideshare.net/walterebert/die-htaccessrichtignutzenwchh2014 (GERMAN)
-<IfModule mod_headers.c>
-	Header set X-Content-Type-Options nosniff
-	Header set X-XSS-Protection "1; mode=block"
-	Header set Content-Security-Policy "default-src 'self'; img-src 'self' http: https: *.gravatar.com;"
-</IfModule>
-
 # Allow WordPress Embed
 # https://gist.github.com/sergejmueller/3c4351ec29576fb441fe
 <IfModule mod_setenvif.c>
