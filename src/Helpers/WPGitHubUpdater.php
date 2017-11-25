@@ -43,15 +43,15 @@ class WPGitHubUpdater
      */
     const VERSION = 1.6;
     /**
-     * @var the config for the updater
+     * @var array the config for the updater
      */
     public $config;
     /**
-     * @var any config that is missing from the initialization of this instance
+     * @var array any config that is missing from the initialization of this instance
      */
     public $missing_config;
     /**
-     * @var temporiraly store the data fetched from GitHub, allows us to only load the data once per class instance
+     * @var array temporiraly store the data fetched from GitHub, allows us to only load the data once per class instance
      */
     private $github_data;
 
