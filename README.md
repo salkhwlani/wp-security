@@ -21,10 +21,6 @@
 - Secure/Scan all upload files.
 - Disable upload plugin manually (zip plugin) form admin panel.
 
-
-~Current Version:1.0.1~
-
-
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
