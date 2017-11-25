@@ -26,6 +26,6 @@ trait HasFilesReader
             return '';
         }
 
-        return file_get_contents($filePath);
+        return \file_get_contents($filePath);
     }
 }

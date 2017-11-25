@@ -52,7 +52,7 @@ class Plugin
     public function __construct($basename)
     {
         $this->basename = $basename;
-        $this->plugin_dir = dirname($this->basename);
+        $this->plugin_dir = \dirname($this->basename);
         $this->initModules();
     }
 
@@ -122,8 +122,8 @@ class Plugin
             return;
         }
 
-        define('WP_GITHUB_FORCE_UPDATE', true);
-        $config = array(
+        \define('WP_GITHUB_FORCE_UPDATE', true);
+        $config = [
             'slug' => $this->basename,
             'proper_folder_name' => $this->plugin_dir,
             'api_url' => 'https://api.github.com/repos/yemenifree/wp-security',
@@ -134,7 +134,7 @@ class Plugin
             'requires' => '4.7',
             'tested' => '4.7',
             'readme' => 'README.md',
-        );
+        ];
         new WPGitHubUpdater($config);
     }
 

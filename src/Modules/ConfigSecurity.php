@@ -34,7 +34,7 @@ define( \'DISALLOW_UNFILTERED_HTML\', true );
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function activate()
     {
@@ -42,7 +42,7 @@ define( \'DISALLOW_UNFILTERED_HTML\', true );
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function deactivate()
     {

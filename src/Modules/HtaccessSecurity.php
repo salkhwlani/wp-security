@@ -52,7 +52,7 @@ class HtaccessSecurity implements Activable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function activate()
     {
@@ -72,7 +72,7 @@ class HtaccessSecurity implements Activable
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function deactivate()
     {
