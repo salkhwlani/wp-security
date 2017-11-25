@@ -125,15 +125,14 @@ class Plugin
             return;
         }
 
-        \define('WP_GITHUB_FORCE_UPDATE', true);
         $config = [
             'slug' => $this->basename,
             'proper_folder_name' => $this->plugin_dir,
             'api_url' => 'https://api.github.com/repos/yemenifree/wp-security',
             'raw_url' => 'https://raw.github.com/yemenifree/wp-security/master',
             'github_url' => 'https://github.com/yemenifree/wp-security',
-            'zip_url' => 'https://github.com/yemenifree/wp-security/archive/master.zip',
-            'sslverify' => true,
+            'zip_url' => 'https://github.com/yemenifree/wp-security/archive/{version}.zip',
+            'sslverify' => false,
             'requires' => '4.7',
             'tested' => '4.7',
             'readme' => 'README.md',

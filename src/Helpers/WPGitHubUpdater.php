@@ -152,6 +152,8 @@ class WPGitHubUpdater
         if (!isset($this->config['readme'])) {
             $this->config['readme'] = 'README.md';
         }
+
+        $this->config['zip_url'] = \str_replace('{version}', $this->config['new_version'], $this->config['zip_url']);
     }
 
     /**
@@ -315,14 +317,14 @@ class WPGitHubUpdater
      */
     public function http_request_timeout()
     {
-        return 2;
+        return 5;
     }
 
     /**
      * Callback fn for the http_request_args filter.
      *
-     * @param unknown $args
-     * @param unknown $url
+     * @param array $args
+     * @param string $url
      *
      * @return mixed
      */
@@ -354,7 +356,7 @@ class WPGitHubUpdater
         // check the version and decide if it's new
         $update = \version_compare($this->config['new_version'], $this->config['version']);
         if (1 === $update) {
-            $response = new stdClass();
+            $response = new \stdClass();
             $response->new_version = $this->config['new_version'];
             $response->slug = $this->config['proper_folder_name'];
             $response->url = add_query_arg(['access_token' => $this->config['access_token']], $this->config['github_url']);
@@ -373,10 +375,10 @@ class WPGitHubUpdater
      *
      * @since 1.0
      *
-     * @param bool   $false    always false
-     * @param string $action   the API function being performed
-     * @param object $args     plugin arguments
-     * @param mixed  $response
+     * @param bool $false always false
+     * @param string $action the API function being performed
+     * @param object $args plugin arguments
+     * @param mixed $response
      *
      * @return object $response the plugin info
      */
@@ -407,9 +409,9 @@ class WPGitHubUpdater
      *
      * @since 1.0
      *
-     * @param bool  $true       always true
+     * @param bool $true always true
      * @param mixed $hook_extra not used
-     * @param array $result     the result of the move
+     * @param array $result the result of the move
      *
      * @return array $result the result of the move
      */
