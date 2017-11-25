@@ -26,7 +26,7 @@ class Plugin
     /**
      * list of active modules.
      *
-     * @var array
+     * @var array|Collection
      */
     protected $modules = [
         HtaccessSecurity::class,
@@ -35,6 +35,7 @@ class Plugin
         CoreSecurity::class,
         ResetSecurity::class,
     ];
+
     /**
      * plugin dir.
      *
@@ -92,6 +93,7 @@ class Plugin
         });
 
         // Register initialization method.
+        /** @scrutinizer ignore-call */
         add_action('init', [$this, 'init'], 10, 0);
     }
 
@@ -118,6 +120,7 @@ class Plugin
     public function updater()
     {
         // note the use of is_admin() to double check that this is happening in the admin
+        /** @scrutinizer ignore-call */
         if (!is_admin()) {
             return;
         }
