@@ -1,0 +1,15 @@
+# BEGIN WP Security
+# Block access to php, php3, php4, php5 and phtml files
+<FilesMatch "\.(?:[Pp][Hh][Pp][345]?|[Pp][Hh][Tt][Mm][Ll])$">
+	<IfModule mod_authz_core.c>
+		Require all denied
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+		Deny from all
+	</IfModule>
+</FilesMatch>
+# Kill PHP Execution
+<Files ~ "\.ph(?:p[345]?|t|tml)$">
+   deny from all
+</Files>
+# END WP Security

@@ -1,0 +1,22 @@
+{
+  "name": "yemenifree/wp-security",
+  "description": "Basic security helper for WordPress.",
+  "keywords": [
+    "wordpress",
+    "security"
+  ],
+  "authors": [
+    {
+      "name": "Salah Alkhwlani",
+      "email": "yemenifree@yandex.com"
+    }
+  ],
+  "require": {
+    "tightenco/collect": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yemenifree\\WpSecurity\\": "src/"
+    }
+  }
+}

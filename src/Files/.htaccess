@@ -1,0 +1,64 @@
+# Don’t list directories
+<IfModule mod_autoindex.c>
+	Options -Indexes
+</IfModule>
+
+# Protect all readme.txt files from all plugins
+<Files readme.txt>
+	Order allow,deny
+	Deny from all
+</Files>
+
+# Protect wp-config.php and other files
+<FilesMatch "(.htaccess|.htpasswd|wp-config.php|liesmich.html|readme.html|(.*)\.ttf|(.*)\.bak|(.*)\.log)">
+	Order deny,allow
+	Deny from all
+</FilesMatch>
+
+# Block include-only files.
+# Don’t use on Multisite without reading this Codex note!
+# See: http://codex.wordpress.org/Hardening_WordPress#Securing_wp-admin
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^wp-admin/includes/ - [F,L]
+	RewriteRule !^wp-includes/ - [S=3]
+	RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+	RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+	RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
+# Set some security related headers
+# See: http://de.slideshare.net/walterebert/die-htaccessrichtignutzenwchh2014 (GERMAN)
+<IfModule mod_headers.c>
+	Header set X-Content-Type-Options nosniff
+	Header set X-XSS-Protection "1; mode=block"
+	Header set Content-Security-Policy "default-src 'self'; img-src 'self' http: https: *.gravatar.com;"
+</IfModule>
+
+# Allow WordPress Embed
+# https://gist.github.com/sergejmueller/3c4351ec29576fb441fe
+<IfModule mod_setenvif.c>
+	SetEnvIf Request_URI "/embed/$" IS_embed
+	<IfModule mod_headers.c>
+		Header set X-Frame-Options SAMEORIGIN env=!REDIRECT_IS_embed
+	</IfModule>
+</IfModule>
+
+
+# Unset headers revealing versions strings
+<IfModule mod_headers.c>
+	Header unset X-Powered-By
+	Header unset X-Pingback
+	Header unset SERVER
+</IfModule>
+
+
+
+# Filter Request Methods
+# See: https://perishablepress.com/disable-trace-and-track-for-better-security/
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK) [NC]
+	RewriteRule ^(.*)$ - [F,L]
+</IfModule>
