@@ -57,7 +57,7 @@ class Plugin
             CoreSecurity::class => [],
             ResetSecurity::class => [],
             UploadZipSecurity::class => [],
-            PluginSecurity::Class => [$this->basename],
+            PluginSecurity::class => [$this->basename],
         ];
 
         $this->initModules();

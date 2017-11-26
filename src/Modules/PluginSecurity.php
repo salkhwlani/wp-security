@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Copyright (c) 2017 Salah Alkhwlani <yemenifree@yandex.com>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace Yemenifree\WpSecurity\Modules;
 
 use Yemenifree\WpSecurity\Interfaces\Activable;
@@ -47,7 +54,7 @@ class PluginSecurity implements Loadable, Activable
         }
 
         // if deactivate is lock.
-        if (file_exists($this->getLockFilename())) {
+        if (\file_exists($this->getLockFilename())) {
             wp_die(__('Sorry, you should remove file ' . $this->getLockFilename() . ' to allow to deactivate this plugin.'));
         }
     }
@@ -59,22 +66,21 @@ class PluginSecurity implements Loadable, Activable
      */
     public function getLockFilename()
     {
-        return rtrim(WC_SECURITY_PATH, '/') . '/' . $this->lock_filename;
+        return \rtrim(WC_SECURITY_PATH, '/') . '/' . $this->lock_filename;
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function activate()
     {
-        touch($this->getLockFilename());
+        \touch($this->getLockFilename());
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function deactivate()
     {
-
     }
 }

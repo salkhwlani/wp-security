@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Copyright (c) 2017 Salah Alkhwlani <yemenifree@yandex.com>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace Yemenifree\WpSecurity\Modules;
 
 use Yemenifree\WpSecurity\Interfaces\Loadable;
@@ -22,7 +29,7 @@ class UploadZipSecurity implements Loadable
      */
     public function disabled_upload_zip_files($action, $result)
     {
-        if (!in_array($action, ['theme-upload', 'plugin-upload'])) {
+        if (!\in_array($action, ['theme-upload', 'plugin-upload'])) {
             return;
         }
 

@@ -323,7 +323,7 @@ class WPGitHubUpdater
     /**
      * Callback fn for the http_request_args filter.
      *
-     * @param array $args
+     * @param array  $args
      * @param string $url
      *
      * @return mixed
@@ -375,10 +375,10 @@ class WPGitHubUpdater
      *
      * @since 1.0
      *
-     * @param bool $false always false
-     * @param string $action the API function being performed
-     * @param object $args plugin arguments
-     * @param mixed $response
+     * @param bool   $false    always false
+     * @param string $action   the API function being performed
+     * @param object $args     plugin arguments
+     * @param mixed  $response
      *
      * @return object $response the plugin info
      */
@@ -409,9 +409,9 @@ class WPGitHubUpdater
      *
      * @since 1.0
      *
-     * @param bool $true always true
+     * @param bool  $true       always true
      * @param mixed $hook_extra not used
-     * @param array $result the result of the move
+     * @param array $result     the result of the move
      *
      * @return array $result the result of the move
      */
