@@ -18,6 +18,7 @@ use Yemenifree\WpSecurity\Interfaces\Loadable;
 use Yemenifree\WpSecurity\Modules\ConfigSecurity;
 use Yemenifree\WpSecurity\Modules\CoreSecurity;
 use Yemenifree\WpSecurity\Modules\HtaccessSecurity;
+use Yemenifree\WpSecurity\Modules\PluginSecurity;
 use Yemenifree\WpSecurity\Modules\ResetSecurity;
 use Yemenifree\WpSecurity\Modules\UploadZipSecurity;
 use Yemenifree\WpSecurity\Modules\XmlrpcDisabled;
@@ -56,6 +57,7 @@ class Plugin
             CoreSecurity::class => [],
             ResetSecurity::class => [],
             UploadZipSecurity::class => [],
+            PluginSecurity::Class => [$this->basename],
         ];
 
         $this->initModules();
