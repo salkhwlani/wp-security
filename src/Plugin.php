@@ -19,6 +19,7 @@ use Yemenifree\WpSecurity\Modules\ConfigSecurity;
 use Yemenifree\WpSecurity\Modules\CoreSecurity;
 use Yemenifree\WpSecurity\Modules\HtaccessSecurity;
 use Yemenifree\WpSecurity\Modules\ResetSecurity;
+use Yemenifree\WpSecurity\Modules\UploadZipSecurity;
 use Yemenifree\WpSecurity\Modules\XmlrpcDisabled;
 
 class Plugin
@@ -28,13 +29,7 @@ class Plugin
      *
      * @var array|Collection
      */
-    protected $modules = [
-        HtaccessSecurity::class,
-        ConfigSecurity::class,
-        XmlrpcDisabled::class,
-        CoreSecurity::class,
-        ResetSecurity::class,
-    ];
+    protected $modules;
 
     /**
      * plugin dir.
@@ -54,6 +49,15 @@ class Plugin
     {
         $this->basename = $basename;
         $this->plugin_dir = \dirname($this->basename);
+        $this->modules = [
+            HtaccessSecurity::class => [],
+            ConfigSecurity::class => [],
+            XmlrpcDisabled::class => [],
+            CoreSecurity::class => [],
+            ResetSecurity::class => [],
+            UploadZipSecurity::class => [],
+        ];
+
         $this->initModules();
     }
 
@@ -64,8 +68,8 @@ class Plugin
      */
     protected function initModules()
     {
-        return $this->modules = $this->getModules()->map(function ($module) {
-            return new $module();
+        return $this->modules = $this->getModules()->map(function ($args, $module) {
+            return new $module(...$args);
         });
     }
 
