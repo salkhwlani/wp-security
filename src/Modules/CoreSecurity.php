@@ -10,17 +10,9 @@
 namespace Yemenifree\WpSecurity\Modules;
 
 use Yemenifree\WpSecurity\Interfaces\Initializable;
-use Yemenifree\WpSecurity\Interfaces\Loadable;
 
-class CoreSecurity implements Loadable, Initializable
+class CoreSecurity implements Initializable
 {
-    /**
-     * Load module (perform any tasks that should be done immediately on plugin load).
-     */
-    public function load()
-    {
-    }
-
     /**
      * Initialize module (perform any tasks that should be done init hook).
      */
