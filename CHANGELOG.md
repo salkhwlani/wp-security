@@ -2,6 +2,11 @@
 
 All notable changes to `yemenifree/wp-security` will be documented in this file.
 
+## 1.0.6 - 2017-11-27
+
+ - clean up CoreSecurity class (Salah Alkhwlani)
+ - add newline to end of htaccess files ( fixed merge proplem) (Salah Alkhwlani)
+
 ## 1.0.5 - 2017-11-26
 
   - Apply styleCi (Salah Alkhwlani)
