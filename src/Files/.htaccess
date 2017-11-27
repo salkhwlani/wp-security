@@ -54,3 +54,4 @@
 	RewriteCond %{REQUEST_METHOD} ^(TRACE|DELETE|TRACK) [NC]
 	RewriteRule ^(.*)$ - [F,L]
 </IfModule>
+
